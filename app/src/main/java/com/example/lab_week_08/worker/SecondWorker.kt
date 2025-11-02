@@ -11,18 +11,13 @@ class SecondWorker(
 ) : Worker(context, workerParams) {
 
     override fun doWork(): Result {
-        // Ambil input dari parameter
         val id = inputData.getString(INPUT_DATA_ID)
-
-        // Simulasikan proses selama 3 detik
         Thread.sleep(3000L)
 
-        // Buat output data
         val outputData = Data.Builder()
             .putString(OUTPUT_DATA_ID, "$id - processed by SecondWorker")
             .build()
 
-        // Kembalikan hasil sukses
         return Result.success(outputData)
     }
 
